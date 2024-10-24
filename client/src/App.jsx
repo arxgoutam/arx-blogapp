@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 
-import './App.css'
+import './pages/style.scss'
 import Home from './pages/Home'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
