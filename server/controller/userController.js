@@ -9,7 +9,8 @@ const userController = {
             const [results] = await pool.query(query);
             res.json({data: results});
         } catch (error) {
-            res.status(500).json("Server Side Error", error)
+            console.error(error);
+            res.status(500).json({ error: 'Database query failed' });
         }
     },
 }
