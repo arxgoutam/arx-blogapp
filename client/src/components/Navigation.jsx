@@ -37,11 +37,11 @@ const Navigation = () =>{
                             </div>
                             {isMenuVisible && (
                             <div className="user-link">
-                                <Link>Write</Link>
-                                <Link>Profile</Link>
-                                <Link>Dashboard</Link>
-                                <Link>Change Password</Link>
-                                <Link>Logout</Link>
+                                <Link to="/write" onClick={toggleMenu}>Write</Link>
+                                <Link onClick={toggleMenu}>Profile</Link>
+                                <Link onClick={toggleMenu}>Dashboard</Link>
+                                <Link onClick={toggleMenu}>Change Password</Link>
+                                <Link onClick={toggleMenu}>Logout</Link>
                             </div>
                                 )}
                         </div>
