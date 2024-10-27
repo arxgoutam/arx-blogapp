@@ -13,6 +13,9 @@ button{
     outline: none;
     cursor: pointer;
 }
+.error{
+    color: red;
+}
 // ============================= Register Page ======================================
 
 .register-page{
@@ -48,7 +51,7 @@ button{
             font-size: 14px;
             cursor: pointer;
             color: aliceblue;
-            background: green;
+            background: black;
             border-radius: 5px;
         }
         .switch-log-btn{
