@@ -1,7 +1,24 @@
+import { Link } from "react-router-dom";
 
 const Login = () =>{
     return(
-        <div>Login</div>
+        <div className="register-page">
+        <form className="from-con" action="">
+          
+            <div className="input-group">
+                <p>Email</p>
+                <input type="email" placeholder="Email" />
+            </div>
+            <div className="input-group">
+                <p>Password</p>
+                <input type="password" placeholder="Password" />
+            </div>
+            <button className="register-btn">Login</button>
+            <div className="switch-log-btn">
+                <p>Have not account? <Link to='/register'>Register</Link></p>
+            </div>
+        </form>
+    </div>
     );
 };
 

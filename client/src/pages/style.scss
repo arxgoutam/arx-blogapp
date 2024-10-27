@@ -12,5 +12,47 @@ body{
 // ============================= Register Page ======================================
 
 .register-page{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    .from-con{
+        padding: 40px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: 500px;
+        border-radius: 10px;
+        .input-group{
+            p{
+                color: rgb(56, 56, 56);
+            }
+            input{
+                width: 100%;
+                padding: 5px 10px;
+                font-size: 14px;
+                margin-bottom: 15px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 35px;
+            }
+        }
+        .register-btn{
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            color: aliceblue;
+            background: green;
+            border-radius: 5px;
+        }
+        .switch-log-btn{
+            p{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 11px;
+            }
+        }
+    }
 }
