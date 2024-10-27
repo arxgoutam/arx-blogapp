@@ -8,7 +8,11 @@ body{
     font-family: "Poppins", sans-serif;
 }
 
-
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 // ============================= Register Page ======================================
 
 .register-page{
@@ -88,6 +92,77 @@ body{
                     }
                 }
             }
+        }
+    }
+}
+
+// ============================= Write Page ======================================
+.write-page{
+    .write-container{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        gap: 40px;
+        .write-left{
+            width: 70%;
+            .title{
+                margin-bottom: 20px;
+                input{
+                    width: 100%;
+                }
+            }
+            .description{
+                margin-bottom: 20px;
+                textarea{
+                    width: 100%;
+                }
+            }
+        }
+        .write-right{
+            width: 30%;
+            .box{
+                padding: 20px;
+                border: 1px solid black;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                .btn-group{
+                    display: flex;
+                    justify-content: space-between;
+                    .draft-btn{
+                        background: none;
+                        border: 1px solid black;
+                        padding: 10px 20px; 
+                    }
+                    .publish-btn{
+                        background: black;
+                        border: 1px solid black;
+                        padding: 10px 20px;
+                        color: white;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+// ============================= Write Page ======================================
+.single-page{
+    .single-container{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        .single-left{
+            width: 70%;
+            padding-right: 20px;
+            .post-img{
+                img{
+                    border-radius: 10px;
+                    width: 100%;
+                }
+            }
+        }
+        .single-right{
+            width: 30%;
         }
     }
 }

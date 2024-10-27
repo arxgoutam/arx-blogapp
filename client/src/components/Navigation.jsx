@@ -37,6 +37,7 @@ const Navigation = () =>{
                             </div>
                             {isMenuVisible && (
                             <div className="user-link">
+                                <Link>Write</Link>
                                 <Link>Profile</Link>
                                 <Link>Dashboard</Link>
                                 <Link>Change Password</Link>

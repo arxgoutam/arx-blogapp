@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -57,7 +58,9 @@ const Home = () => {
                         <div className="post-info">
                             <h1 className="post-title">{post.title}</h1>
                             <p>{post.desc.slice(0, 200)}......</p>
-                            <button className="read-more-btn">Read More</button>
+                            <Link to={`/post/${post.id}`}>
+                                <button className="read-more-btn">Read More</button>
+                            </Link>
                         </div>
                     </div>
                     ))}
