@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 
 import './pages/style.scss'
+import './components/components.scss'
 import Home from './pages/Home'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';

@@ -56,3 +56,38 @@ body{
         }
     }
 }
+
+// ============================= Home Page ======================================
+.home-page{
+    .home-container{
+        width: 90%;
+        margin: auto;
+        .posts{
+            .post-box{
+                display: flex;
+                margin-bottom: 20px;
+                .post-img{
+                    margin-right: 16px;
+                    img{
+                        width: 350px;
+                        border-radius: 10px;
+                    }
+                }
+                .post-info{
+                    .post-title{
+                        font-size: 26px;
+                    }
+                    .read-more-btn{
+                        background: none;
+                        border: none;
+                        outline: none;
+                        padding: 5px 20px;
+                        border: 1px solid black;
+                        cursor: pointer;
+                        margin: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
