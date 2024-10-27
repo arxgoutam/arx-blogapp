@@ -30,6 +30,7 @@
             }
             .user{
                 position: relative;
+                margin-left: 20px;
                 .user-box{
                     .user-img{
                         width: 40px;
@@ -79,6 +80,35 @@
         .foot-left{
             img{
                 width: 120px;
+            }
+        }
+    }
+}
+// ================= Footer =================
+.menu{
+    padding-left: 20px;
+    .posts{
+        .post-box{
+            margin-bottom: 20px;
+            .post-img{
+                img{
+                    width: 100%;
+                    border-radius: 10px;
+                }
+            }
+            .post-info{
+                .post-title{
+                    font-size: 20px;
+                }
+                .read-more-btn{
+                    background: none;
+                    border: none;
+                    outline: none;
+                    padding: 5px 20px;
+                    border: 1px solid black;
+                    cursor: pointer;
+                    margin: 10px;
+                }
             }
         }
     }
