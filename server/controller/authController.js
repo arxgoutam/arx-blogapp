@@ -47,6 +47,13 @@ const authController = {
         } catch (error) {
             return res.status(500).json("Server Side Problem")
         }
+    },
+    logout: (req, res) => {
+        res.clearCookie("access_token", {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true
+        }).status(200).json("User has been logged out.")
     }
 }
 

@@ -7,7 +7,7 @@ import user from "../assets/user.jpg"
 import { AuthContext } from '../context/authContex';
 
 const Navigation = () =>{
-    const {currentUser} = useContext(AuthContext);
+    const {currentUser, logout} = useContext(AuthContext);
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -44,7 +44,7 @@ const Navigation = () =>{
                                 <Link onClick={toggleMenu}>Profile</Link>
                                 <Link onClick={toggleMenu}>Dashboard</Link>
                                 <Link onClick={toggleMenu}>Change Password</Link>
-                                <Link onClick={toggleMenu}>Logout</Link>
+                                <Link onClick={logout}>Logout</Link>
                             </div>
                                 )}
                         </div>
