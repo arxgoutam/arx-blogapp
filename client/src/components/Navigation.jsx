@@ -1,11 +1,13 @@
 
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-black.png"
 import user from "../assets/user.jpg"
+import { AuthContext } from '../context/authContex';
 
 const Navigation = () =>{
+    const {currentUser} = useContext(AuthContext);
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -30,6 +32,7 @@ const Navigation = () =>{
                         <Link to='/'>NFT</Link>
                         <Link to='/'>AI</Link>
                     </div>
+                    {currentUser ? 
                     <div className="user">
                         <div className="user-box">
                             <div className="user-img"  onClick={toggleMenu} style={{ cursor: 'pointer' }}>
@@ -47,6 +50,9 @@ const Navigation = () =>{
                         </div>
 
                     </div>
+                    :
+                    <Link to='/login' className='login-btn'>Login</Link>
+                        }
                 </div>
             </div>
         </div>
