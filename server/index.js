@@ -3,8 +3,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const userRouter = require('./router/userRouter');
 const authRouter = require('./router/authRouter');
+const userRouter = require('./router/userRouter');
+const postRouter = require('./router/postRouter');
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -13,8 +14,9 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/users', userRouter);
+app.use('/api/posts', postRouter);
 
 app.get('/', (req, res)=>{
     res.send("Server Running")

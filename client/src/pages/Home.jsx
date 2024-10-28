@@ -47,10 +47,8 @@ const Home = () => {
         <div className="home-page">
             <div className="home-container">
 
-
                 <div className="posts">
                 {data.map(post =>(
-
                     <div className="post-box">
                         <div className="post-img">
                             <img src={post.img} alt="" />

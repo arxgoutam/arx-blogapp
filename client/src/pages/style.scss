@@ -92,6 +92,11 @@ button{
                         border: 1px solid black;
                         cursor: pointer;
                         margin: 10px;
+                        transition: all 0.3s ease;
+                        &:hover{
+                            background: black;
+                            color: white;
+                        }
                     }
                 }
             }
