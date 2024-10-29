@@ -80,7 +80,7 @@ const Home = () => {
                         </div>
                         <div className="post-info">
                             <h1 className="post-title">{post.title}</h1>
-                            <p>{post.desc.slice(0, 200)}......</p>
+                            <p>{post.post_desc.slice(0, 200)}......</p>
                             <Link to={`/post/${post.id}`}>
                                 <button className="read-more-btn">Read More</button>
                             </Link>
