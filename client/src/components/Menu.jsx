@@ -1,5 +1,23 @@
 import { Link } from "react-router-dom";
-const Menu = () =>{
+import axios from "axios";
+import { useEffect, useState } from "react";
+const Menu = ({cat}) =>{
+
+    const [posts, setPosts] = useState([]);
+    
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            try {
+                const res = await axios.get(`http://localhost:8000/api/posts?cat=${cat}`);
+                setPosts(res.data.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData();
+    },[cat]);
+
+
     const data = [
         {
             id: 1,
