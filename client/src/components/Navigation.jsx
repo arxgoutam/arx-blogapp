@@ -26,11 +26,11 @@ const Navigation = () =>{
                 </div>
                 <div className="nav-right">
                     <div className="links">
-                        <Link to='/'>Blockchain</Link>
-                        <Link to='/'>Trading</Link>
-                        <Link to='/'>Crypto</Link>
-                        <Link to='/'>NFT</Link>
-                        <Link to='/'>AI</Link>
+                        <Link to='/?cat=blockchain'>Blockchain</Link>
+                        <Link to='/?cat=trading'>Trading</Link>
+                        <Link to='/?cat=crypto'>Crypto</Link>
+                        <Link to='/?cat=nft'>NFT</Link>
+                        <Link to='/?cat=ai'>AI</Link>
                     </div>
                     {currentUser ? 
                     <div className="user">
