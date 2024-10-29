@@ -1,4 +1,5 @@
 const pool = require('../database');
+const jwt = require('jsonwebtoken');
 
 const postController = {
     getAllpost: async (req, res) => {
@@ -25,6 +26,38 @@ const postController = {
         } catch (error) {
             res.status(500).json("Server Side Problem !!!");
             
+        }
+    },
+
+    postPost: async (req, res) => {
+        try {
+            // check token
+            const token = req.cookies.access_token;
+            if(!token) return res.status(401).json("Not Authenticated!");
+
+            // Verify the JWT token
+            jwt.verify(token, "jwtkey", async (err, userInfo) => {
+                if(err) return res.status(403).json("Token is not valid!");
+
+                // Prepare the query and values
+                const query = "INSERT INTO posts(`title`, `post_desc`, `img`, `cat`, `post_date`, `uid`) VALUES (?)";
+                const values = [
+                    req.body.title,
+                    req.body.desc,
+                    req.body.img,
+                    req.body.cat,
+                    req.body.date,
+                    userInfo.id
+                ];
+
+                try {
+                    const [result] = await pool.query(query, [values]);
+                } catch (dbError) {
+                    res.status(500).json("Server error while creating post");
+                }
+            });
+        } catch (error) {
+            res.status(500).json("Server error while creating post!");
         }
     },
 }
