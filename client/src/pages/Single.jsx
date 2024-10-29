@@ -1,14 +1,47 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import user from "../assets/user.jpg"
 import { FaTrashCan, FaPenToSquare } from "react-icons/fa6";
 import Menu from "../components/Menu";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/authContex";
+import axios from "axios";
+import Loader from "../components/Loader";
 const Single = () =>{
+    const [post, setPost] = useState({});
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const location = useLocation();
+    const postId = location.pathname.split("/")[2];
+    const navigate = useNavigate();
+
+    const {currentUser} = useContext(AuthContext);
+    
+    useEffect(()=>{
+        const fetchData = async () =>{
+            try {
+                const res = await axios.get(`http://localhost:8000/api/posts/${postId}`);
+                setPost(res.data.data)
+            } catch (error) {
+                setError("Error Fetching Post")
+            } finally {
+                setLoading(false)
+            }
+        };
+
+        fetchData();
+        
+    }, [postId]);
+    console.log(post)
+
+    if(loading) return <Loader/>;
+    if(error) return <p className="error">{error}</p>
     return(
         <div className="single-page">
             <div className="single-container">
                 <div className="single-left">
                     <div className="post-img">
-                        <img src="https://i0.wp.com/erickimphotography.com/blog/wp-content/uploads/2018/05/ERIC-KIM-STREET-PHOTOGRAPHY2.jpg?resize=2000%2C1333" alt="" />
+                        <img src={post.img} alt="" />
                     </div>
                     <div className="user">
                         <div className="user-info">
