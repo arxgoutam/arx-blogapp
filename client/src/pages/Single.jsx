@@ -33,10 +33,17 @@ const Single = () =>{
         
     }, [postId]);
 
-
-
     if(loading) return <Loader/>;
     if(error) return <p className="error">{error}</p>
+
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`http://localhost:8000/api/posts/${postId}`, {withCredentials: true});
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return(
         <div className="single-page">
             <div className="single-container">
@@ -57,7 +64,8 @@ const Single = () =>{
                     {currentUser && post && currentUser.username === post.username &&
                         <div className="action">
                             <Link to={`/write?edit=${postId}`} state={post}><FaPenToSquare /></Link>
-                            <Link><FaTrashCan /></Link>
+                            {/* <Link><FaTrashCan /></Link> */}
+                            <button onClick={handleDelete} className="delete-btn"><FaTrashCan /></button>
                         </div>
                      }
                     </div>
