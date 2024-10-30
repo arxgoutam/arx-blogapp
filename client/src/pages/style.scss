@@ -262,3 +262,38 @@ button{
         }
     }
 }
+// ============================= Dashboard Page ======================================
+.react-tabs {
+    display: flex;
+}
+.react-tabs__tab-list{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px !important;
+    width: 300px;
+    border: 1px solid black;
+   
+}
+.react-tabs__tab--selected {
+   background: black !important;
+   color: white !important;
+   border-radius: 0 0 0 0 !important;
+   border-color: black !important;
+}
+.dashboard-page{
+    .dashboard-container{
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px 0;
+        display: flex;
+        .side-bar{
+            width: 30%;
+            border: 1px solid black;
+        }
+        .content{
+            width: 70%;
+            padding-left: 20px;
+        }
+    }
+}

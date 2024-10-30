@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import ScrollToTop from './components/ScrollToTop';
 import Category from './pages/Category';
+import Dashboard from './pages/Dashboard';
 
 const Layout = ()=>{
   return(
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/category",
         element: <Category/>
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>
       }
     ]
   },

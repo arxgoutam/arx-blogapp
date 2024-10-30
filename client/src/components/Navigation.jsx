@@ -41,9 +41,9 @@ const Navigation = () =>{
                             {isMenuVisible && (
                             <div className="user-link">
                                 <Link to="/write" onClick={toggleMenu}>Write</Link>
-                                <Link onClick={toggleMenu}>Profile</Link>
-                                <Link onClick={toggleMenu}>Dashboard</Link>
-                                <Link onClick={toggleMenu}>Change Password</Link>
+                                <Link to="/dashboard" onClick={toggleMenu}>Profile</Link>
+                                <Link to="/dashboard" onClick={toggleMenu}>Dashboard</Link>
+                                <Link to="/dashboard" onClick={toggleMenu}>Change Password</Link>
                                 <Link onClick={logout}>Logout</Link>
                             </div>
                                 )}
