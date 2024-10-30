@@ -9,7 +9,6 @@ const Write = () =>{
     const [desc, setDesc] = useState(state ? state.post_desc : "");
     const [file, setFile] = useState(null);
     const [cat, setCat] = useState(state ? state.cat : "");
-    console.log(state)
     const upload = async () => {
         const formData = new FormData(); // Corrected the variable name here
         formData.append("file", file); // Ensure `file` is correctly set from your input
@@ -19,7 +18,6 @@ const Write = () =>{
               'Content-Type': 'multipart/form-data', // Important to set correct headers
             },
           });
-          console.log(res.data)
           return res.data
         } catch (error) {
           console.log(error);
@@ -52,9 +50,9 @@ const Write = () =>{
                 console.log("Post updated:", response.data); // Log the response
                 navigate('/')
             } else {
-                // Create new post 
-                const response = await axios.post(`http://localhost:8000/api/posts`, payload, { withCredentials: true });
-                console.log("post created:", response.data);
+               // Create new post
+                const response = await axios.post(`http://localhost:8000/api/posts`, payload, { withCredentials: true});
+                console.log("Post created:", response.data); // Log the response
                 navigate('/')
             }
         } catch (error) {

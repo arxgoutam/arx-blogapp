@@ -15,7 +15,7 @@ const postController = {
     getPost: async (req, res)=>{
         try {
             const id = req.params.id;
-            const query = "SELECT p.id, `username`, `email`, `title`, `post_desc`, p.img, u.profile_img AS userImg, `cat`, `date` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ?"
+            const query = "SELECT p.id, `username`, `email`, `title`, `post_desc`, p.img, u.profile_img AS userImg, `cat`, `post_date` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ?"
             const [row] = await pool.query(query, [id]);
             if (row.length === 0) {
                 return res.status(404).json({ message: "Post not found" }); // Handle case where no post is found
@@ -52,6 +52,7 @@ const postController = {
 
                 try {
                     const [result] = await pool.query(query, [values]);
+                    return res.json("Post has been Created.");
                 } catch (dbError) {
                     res.status(500).json("Server error while creating post");
                 }

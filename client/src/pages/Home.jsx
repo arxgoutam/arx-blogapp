@@ -70,6 +70,9 @@ const Home = () => {
 
     return(
         <div className="home-page">
+            <div className="home-slider">
+                <img src="https://i0.wp.com/erickimphotography.com/blog/wp-content/uploads/2018/05/ERIC-KIM-STREET-PHOTOGRAPHY2.jpg?resize=2000%2C1333" alt="" />
+            </div>
             <div className="home-container">
 
                 <div className="posts">
@@ -80,7 +83,7 @@ const Home = () => {
                         </div>
                         <div className="post-info">
                             <h1 className="post-title">{post.title}</h1>
-                            <p>{post.post_desc.slice(0, 200)}......</p>
+                            <p>{post.post_desc.slice(0, 600)}......</p>
                             <Link to={`/post/${post.id}`}>
                                 <button className="read-more-btn">Read More</button>
                             </Link>

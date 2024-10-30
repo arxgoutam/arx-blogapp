@@ -5,6 +5,7 @@ import Menu from "../components/Menu";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContex";
 import axios from "axios";
+import moment from "moment"
 import Loader from "../components/Loader";
 const Single = () =>{
     const [post, setPost] = useState({});
@@ -57,8 +58,8 @@ const Single = () =>{
                                 <img src={user} alt="" />
                             </div>
                             <div className="info">
-                                <h5>Goutam Paik</h5>
-                                <p>5 hours ago</p>
+                                <h5>{post.username}</h5>
+                                <p>Posted {moment(post.post_date).fromNow()}</p>
                             </div>
                         </div>
                     {currentUser && post && currentUser.username === post.username &&
