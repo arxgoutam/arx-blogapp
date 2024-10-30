@@ -60,6 +60,32 @@ const postController = {
             res.status(500).json("Server error while creating post!");
         }
     },
+
+    postUpdate: async (req, res) => {
+        try {
+            // check token
+            const token = req.cookies.access_token
+            if(!token) return res.status(401).json("Not Authenticated!");
+
+            //Verify the JWT token
+            jwt.verify(token, "jwtkey", async(err, userInfo)=>{
+                if(err) return res.status(403).json("Token is not valid!!");
+
+                const postId = req.params.id;
+                const query = "UPDATE posts SET";
+                const values =[];
+
+                try {
+                    // Execute the query and update the post
+                    // Check if any rows were updated
+                } catch (error) {
+                    res.status(500).json("Server error while updating post!");
+                }
+            });
+        } catch (error) {
+            res.status(500).json("Server error while updating post!");
+        }
+    },
 }
 
 module.exports = postController;

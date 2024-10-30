@@ -48,10 +48,14 @@ const Write = () =>{
             };
             if(state){
                 // Update Post
+                const response = await axios.put(`http://localhost:8000/api/posts/${state.id}`, payload, { withCredentials: true });
+                console.log("Post updated:", response.data); // Log the response
+                navigate('/')
             } else {
                 // Create new post 
                 const response = await axios.post(`http://localhost:8000/api/posts`, payload, { withCredentials: true });
                 console.log("post created:", response.data);
+                navigate('/')
             }
         } catch (error) {
             console.error("Error during post operation arx:", error);
