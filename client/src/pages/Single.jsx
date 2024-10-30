@@ -56,7 +56,7 @@ const Single = () =>{
                         </div>
                     {currentUser && post && currentUser.username === post.username &&
                         <div className="action">
-                            <Link to={`/write/?edit=2`}><FaPenToSquare /></Link>
+                            <Link to={`/write?edit=${postId}`} state={post}><FaPenToSquare /></Link>
                             <Link><FaTrashCan /></Link>
                         </div>
                      }

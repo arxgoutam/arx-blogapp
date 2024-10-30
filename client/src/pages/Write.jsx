@@ -3,13 +3,13 @@ import moment from "moment";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 const Write = () =>{
-    const state = useLocation.state
+    const state = useLocation().state
     const navigate = useNavigate();
     const [title, setTitle] = useState(state ? state.title : "");
     const [desc, setDesc] = useState(state ? state.post_desc : "");
     const [file, setFile] = useState(null);
     const [cat, setCat] = useState(state ? state.cat : "");
-
+    console.log(state)
     const upload = async () => {
         const formData = new FormData(); // Corrected the variable name here
         formData.append("file", file); // Ensure `file` is correctly set from your input

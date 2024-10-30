@@ -72,12 +72,23 @@ const postController = {
                 if(err) return res.status(403).json("Token is not valid!!");
 
                 const postId = req.params.id;
-                const query = "UPDATE posts SET";
-                const values =[];
+                const query = "UPDATE posts SET `title` = ?, `post_desc` = ?, `img` = ?, `cat` = ? WHERE `id` = ? AND `uid` = ?";
+                const values =[
+                    req.body.title,
+                    req.body.desc,
+                    req.body.img,
+                    req.body.cat
+                ];
 
                 try {
                     // Execute the query and update the post
+                    const [result] = await pool.query(query, [...values, postId, userInfo.id]);
+
                     // Check if any rows were updated
+                    if(result.affectedRows === 0) {
+                        return res.status(404).json("Post not found or you're not authorized to update it.")
+                    }
+                    return res.json("Post has been updated.");
                 } catch (error) {
                     res.status(500).json("Server error while updating post!");
                 }
@@ -86,6 +97,37 @@ const postController = {
             res.status(500).json("Server error while updating post!");
         }
     },
+
+    postDelete: async (req, res)=>{
+        try {
+             // check token
+             const token = req.cookies.access_token
+             if(!token) return res.status(401).json("Not Authenticated!");
+
+              //Verify the JWT token
+            jwt.verify(token, "jwtkey", async(err, userInfo)=>{
+                if(err) return res.status(403).json("Token is not valid!!");
+
+                const postId = req.params.id;
+                const query = "DELETE FROM posts WHERE `id` = ? AND `uid` = ?";
+          
+                try {
+                    // Execute the query and update the post
+                    const [result] = await pool.query(query, [postId, userInfo.id]);
+
+                    // Check if any rows were updated
+                    if(result.affectedRows === 0) {
+                        return res.status(404).json("You can only delete your own posts!")
+                    }
+                    return res.json("Post has been updated.");
+                } catch (error) {
+                    res.status(500).json("Server error while updating post!");
+                }
+            });
+        } catch (error) {
+            res.status(500).json("Server error while deleting post!");
+        }
+    }
 }
 
 module.exports = postController;
